@@ -49,9 +49,12 @@ class FavoriteView: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func goToWebview(with url: String) {
-        webView.load(URLRequest.init(url: URL.init(string: url)!))
-        UIViewController().view.addSubview(webView)
-        self.present(UIViewController(),animated: true)
+        let controller = UIViewController()
+        let request = URLRequest.init(url: URL.init(string: url)!)
+        
+        webView.load(request)
+        controller.view.addSubview(webView)
+        self.present(controller,animated: true)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
